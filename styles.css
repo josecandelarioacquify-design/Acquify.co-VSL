@@ -922,22 +922,12 @@ body {
 .modal-card {
   background: rgb(255, 255, 255);
   border-radius: 12px;
-  padding: 16px 16px 0;
+  padding: 36px 36px 32px;
   width: 100%;
-  max-width: 620px;
-  height: 90vh;
+  max-width: 580px;
   overflow: hidden;
   position: relative;
   animation: slideUp 0.25s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-iframe {
-  width: 100%;
-  flex: 1;
-  border: none;
-  border-radius: 0 0 12px 12px;
 }
 
 @keyframes slideUp {
