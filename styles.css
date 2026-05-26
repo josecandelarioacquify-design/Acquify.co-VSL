@@ -893,3 +893,242 @@ body {
     padding: 0 0 4px;
   }
 }
+
+/* ============================================
+   MODAL OPT-IN
+   ============================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-card {
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  padding: 16px 16px 0;
+  width: 100%;
+  max-width: 620px;
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-iframe {
+  width: 100%;
+  flex: 1;
+  border: none;
+  border-radius: 0 0 12px 12px;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: rgba(0, 0, 0, 0.4);
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover { color: rgba(0, 0, 0, 0.9); }
+
+.modal-close svg { width: 20px; height: 20px; }
+
+.modal-header {
+  margin-bottom: 28px;
+}
+
+.modal-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+}
+
+/* Form fields */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid rgb(220, 220, 220);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-input:focus { border-color: rgb(0, 0, 0); }
+.form-input::placeholder { color: rgba(0, 0, 0, 0.35); }
+
+.form-input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input-icon svg {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.form-input.with-icon { padding-left: 38px; }
+
+.form-select-wrapper {
+  position: relative;
+}
+
+.form-select {
+  width: 100%;
+  padding: 12px 36px 12px 14px;
+  border: 1.5px solid rgb(220, 220, 220);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.form-select:focus { border-color: rgb(0, 0, 0); }
+.form-select option[value=""][disabled] { color: rgba(0, 0, 0, 0.35); }
+
+.select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  transition: opacity 0.15s;
+}
+
+.form-submit:hover { opacity: 0.85; }
+
+.form-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form-checkbox {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: rgb(0, 0, 0);
+}
+
+.form-checkbox-row label {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+/* Success state */
+.form-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 40px 0 20px;
+}
+
+.form-success svg { width: 64px; height: 64px; }
+
+.form-success h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+}
+
+.form-success p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 600px) {
+  .modal-card {
+    padding: 32px 20px;
+    max-height: 95vh;
+  }
+}
